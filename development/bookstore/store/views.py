@@ -10,11 +10,4 @@ def store(request):
     context = {
         'count': count,
     }
-    return render(request, 'store.html', context)
-
-def login(request):
-    return render(request, 'login.html')
-
-@login_required
-def store(request):
-    return render(request, 'store.html')
+    return render(request, 'base.html', context)

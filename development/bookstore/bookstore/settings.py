@@ -138,8 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/store/'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
 
 SITE_ID = 1
 
