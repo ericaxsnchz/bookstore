@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import Book
 
 def index(request):
@@ -9,4 +10,4 @@ def store(request):
     context = {
         'count': count,
     }
-    return render(request, 'store.html', context)
+    return render(request, 'base.html', context)
