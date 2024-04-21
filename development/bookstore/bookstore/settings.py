@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'store',
 ]
 
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 INTERNAL_IPS = [
@@ -69,12 +71,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'bookstore.wsgi.application'
+
+
 
 
 # Database
@@ -133,6 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/store/'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 SITE_ID = 1
 
@@ -144,3 +151,13 @@ EMAIL_HOST_PASSWORD = "Angelthepie1"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Social Auth - Facebook 
+
+SOCIAL_AUTH_FACEBOOK_KEY = '961760078664560'
+SOCIAL_AUTH_FACEBOOK_SECRET = '2d9441c96e5aef9b4c34bb276581f8ca'
